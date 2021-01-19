@@ -1,4 +1,4 @@
-package com.bao.admin;
+package com.baozi.admin.config;
 
 import com.baoz.admin.exception.CommonException;
 import com.baozi.admin.api.ApiResponse;

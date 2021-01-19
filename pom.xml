@@ -14,7 +14,7 @@
     <artifactId>baozi-server-admin</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>baozi-admin-root</name>
-    <description>包子中台根目录</description>
+    <description>包子中台根节点</description>
     <packaging>pom</packaging>
 
     <modules>
@@ -22,17 +22,15 @@
         <module>baozi-admin-utils</module>
         <module>baozi-admin-manager</module>
         <module>baozi-admin-base</module>
-        <module>baozi-admin-config</module>
         <module>baozi-admin-api</module>
     </modules>
 
     <properties>
-        <skipTests>true</skipTests>
-        <java.version>1.8</java.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven-compiler-plugin>3.1</maven-compiler-plugin>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
         <mybatis-plus.version>3.4.0</mybatis-plus.version>
         <alibaba-druid.version>1.1.18</alibaba-druid.version>
         <alibaba-fastjson.version>1.2.73</alibaba-fastjson.version>
@@ -98,6 +96,33 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool--all.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.dyuproject.protostuff/protostuff-core -->
+            <!-- 序列化相关-->
+            <dependency>
+                <groupId>com.dyuproject.protostuff</groupId>
+                <artifactId>protostuff-core</artifactId>
+                <version>${dyuproject.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dyuproject.protostuff</groupId>
+                <artifactId>protostuff-runtime</artifactId>
+                <version>${dyuproject.version}</version>
+            </dependency>
+
+            <!-- swagger -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <!-- swagger -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.ui.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
