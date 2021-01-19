@@ -149,4 +149,9 @@ public class SnowflakeIdUtil {
         long id = idWorker.nextId();
         return String.valueOf(id);
     }
+
+    public static String buildIdWithPrefix(String prefix){
+        long id = idWorker.nextId();
+        return prefix + String.valueOf(id);
+    }
 }

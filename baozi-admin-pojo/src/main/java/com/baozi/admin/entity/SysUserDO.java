@@ -1,12 +1,13 @@
 package com.baozi.admin.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -30,11 +31,6 @@ public class SysUserDO implements Serializable {
     private String id;
 
     /**
-     * 系统用户编号
-     */
-    private String userCode;
-
-    /**
      * 用户昵称
      */
     private String userName;
@@ -48,11 +44,6 @@ public class SysUserDO implements Serializable {
      * 密码
      */
     private String password;
-
-    /**
-     * 盐值
-     */
-    private String salt;
 
     /**
      * 性别:男0、女1

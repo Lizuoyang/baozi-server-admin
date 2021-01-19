@@ -1,12 +1,12 @@
 package com.baozi.admin.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.*;
+
 import java.io.Serializable;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -19,6 +19,9 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("t_sys_operation")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class SysOperationDO implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -19,14 +19,14 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public ApiResponse error(Exception exception) {
-        log.info("进入统一异常拦截，异常类型：Exception");
+        log.info("进入统一异常拦截，异常类型：Exception, 异常信息：{}",exception.getMessage());
         return ApiResponse.ofMessage(exception.getMessage());
     }
 
     @ExceptionHandler(CommonException.class)
     @ResponseBody
     public ApiResponse err(CommonException exception) {
-        log.info("进入统一异常拦截，异常类型：CommonException");
+        log.info("进入统一异常拦截，异常类型：CommonException, 异常信息：{}",exception.getMessage());
         return ApiResponse.ofException(exception);
     }
 }

@@ -12,6 +12,8 @@ import lombok.AllArgsConstructor;
 public enum GlobalEnums {
     YES("Y"),
     NO("N"),
+    DELETED("1"),
+    NORMAL("0"),
     ;
 
     private String value;

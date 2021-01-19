@@ -39,6 +39,7 @@
         <swagger.ui.version>2.9.2</swagger.ui.version>
         <lombok.version>1.18.10</lombok.version>
         <apache-common-lang3.version>3.10</apache-common-lang3.version>
+        <apache-common-collections.version>4.1</apache-common-collections.version>
         <ip2region.version>1.7.2</ip2region.version>
         <dyuproject.version>1.1.5</dyuproject.version>
         <mybatis.version>3.3.0</mybatis.version>
@@ -49,6 +50,10 @@
         <velocity.version>2.1</velocity.version>
         <freemarker.version>2.3.29</freemarker.version>
         <ibeetl.version>3.0.13.RELEASE</ibeetl.version>
+        <map-struct.version>1.4.1.Final</map-struct.version>
+        <github-pagehelper.version>5.1.2</github-pagehelper.version>
+        <github-pagehelper-starter.version>1.2.3</github-pagehelper-starter.version>
+        <google-guava.version>29.0-android</google-guava.version>
     </properties>
 
     <dependencyManagement>
@@ -91,11 +96,25 @@
                 <version>${apache-common-lang3.version}</version>
             </dependency>
 
+            <!--apache 集合包-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${apache-common-collections.version}</version>
+            </dependency>
+
             <!-- Hutool 工具包 -->
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool--all.version}</version>
+            </dependency>
+
+            <!-- google guava 工具包-->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${google-guava.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/com.dyuproject.protostuff/protostuff-core -->
@@ -124,6 +143,41 @@
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger.ui.version}</version>
             </dependency>
+
+            <!-- mapstruct start -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${map-struct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${map-struct.version}</version>
+            </dependency>
+            <!-- mapstruct end -->
+
+            <!-- 格式化对象，方便输出日志 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${alibaba-fastjson.version}</version>
+            </dependency>
+
+            <!-- 引入druid数据源 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${alibaba-druid.version}</version>
+            </dependency>
+
+            <!-- MyBatis 分页插件 PageHelper start -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${github-pagehelper.version}</version>
+            </dependency>
+            <!-- MyBatis 分页插件 PageHelper end -->
         </dependencies>
     </dependencyManagement>
 </project>

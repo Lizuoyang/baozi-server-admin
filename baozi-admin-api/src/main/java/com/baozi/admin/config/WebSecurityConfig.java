@@ -25,6 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         web.ignoring()
                 .antMatchers(
                         "/v2/api-docs",
+                        "/api/**",
                         "/configuration/ui",
                         "/configuration/security",
                         "/webjars/**",

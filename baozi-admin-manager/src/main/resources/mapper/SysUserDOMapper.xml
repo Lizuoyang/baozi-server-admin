@@ -5,11 +5,9 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.baozi.admin.entity.SysUserDO">
         <id column="id" property="id" />
-        <result column="user_code" property="userCode" />
         <result column="user_name" property="userName" />
         <result column="login_name" property="loginName" />
         <result column="password" property="password" />
-        <result column="salt" property="salt" />
         <result column="sex" property="sex" />
         <result column="phone" property="phone" />
         <result column="email" property="email" />
@@ -22,9 +20,58 @@
         <result column="updated_time" property="updatedTime" />
     </resultMap>
 
+    <resultMap id="WithRoleResultMap" type="com.baozi.admin.vo.SysUserVo">
+        <id column="id" property="id" />
+        <result column="user_code" property="userCode" />
+        <result column="user_name" property="userName" />
+        <result column="login_name" property="loginName" />
+        <result column="sex" property="sex" />
+        <result column="phone" property="phone" />
+        <result column="email" property="email" />
+        <result column="image_url" property="imageUrl" />
+        <result column="register_date" property="registerDate" />
+        <result column="IS_DELETE" property="isDelete" />
+        <result column="CREATED_BY" property="createdBy" />
+        <result column="CREATED_TIME" property="createdTime" />
+        <result column="UPDATED_BY" property="updatedBy" />
+        <result column="UPDATED_TIME" property="updatedTime" />
+        <result column="role_id" property="roleId" />
+        <result column="role_code" property="roleCode" />
+        <result column="role_name" property="roleName" />
+    </resultMap>
+
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, user_code, user_name, login_name, password, salt, sex, phone, email, image_url, register_date, is_delete, created_by, created_time, updated_by, updated_time
+        id, user_name, login_name, password, salt, sex, phone, email, image_url, register_date, is_delete, created_by, created_time, updated_by, updated_time
     </sql>
+
+    <select id="selectListWithRoleInfo" resultMap="WithRoleResultMap">
+        select t2.*, t3.role_name as 'role_name', t3.role_code as 'role_code', t3.id as 'role_id'
+        from t_sys_user_role t1
+        left join t_sys_user t2 on t1.user_id = t2.id
+        left join t_sys_role t3 on t1.role_id = t3.id
+        <where>
+            <if test="roleCode != null and roleCode != ''">
+                AND t3.role_code = #{roleCode,jdbcType=VARCHAR}
+            </if>
+            <if test="userName != null and userName != ''">
+                AND t2.login_name = #{userName,jdbcType=VARCHAR}
+            </if>
+            <if test="isDelete != null">
+                AND t2.IS_DELETE = #{isDelete,jdbcType=INTEGER}
+            </if>
+        </where>
+        ORDER BY t2.IS_DELETE ASC, t2.register_date DESC
+    </select>
+
+    <select id="selectOneWithRoleInfo" resultMap="WithRoleResultMap">
+        select t2.*, t3.role_name as 'role_name', t3.role_code as 'role_code', t3.id as 'role_id'
+        from t_sys_user_role t1
+        left join t_sys_user t2 on t1.user_id = t2.id
+        left join t_sys_role t3 on t1.role_id = t3.id
+        where t2.IS_DELETE = 0
+        AND t2.id = #{uid,jdbcType=BIGINT}
+        ORDER BY t2.register_date DESC
+    </select>
 
 </mapper>

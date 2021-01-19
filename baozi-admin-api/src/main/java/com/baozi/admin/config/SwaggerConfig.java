@@ -64,7 +64,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("包子中台接口文档")
+                .title("包子中台管理系统接口文档")
                 .description("后台管理终端API")
                 .version("1.0")
                 .build();
