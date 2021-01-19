@@ -2,11 +2,103 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.9.RELEASE</version>
+        <relativePath /> <!-- lookup parent from repository -->
+    </parent>
 
+    <modelVersion>4.0.0</modelVersion>
     <groupId>com.baozi.admin</groupId>
     <artifactId>baozi-server-admin</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>baozi-admin-root</name>
+    <description>包子中台根目录</description>
+    <packaging>pom</packaging>
 
+    <modules>
+        <module>baozi-admin-pojo</module>
+        <module>baozi-admin-utils</module>
+        <module>baozi-admin-manager</module>
+        <module>baozi-admin-base</module>
+        <module>baozi-admin-config</module>
+        <module>baozi-admin-api</module>
+    </modules>
 
+    <properties>
+        <skipTests>true</skipTests>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven-compiler-plugin>3.1</maven-compiler-plugin>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <mybatis-plus.version>3.4.0</mybatis-plus.version>
+        <alibaba-druid.version>1.1.18</alibaba-druid.version>
+        <alibaba-fastjson.version>1.2.73</alibaba-fastjson.version>
+        <hutool--all.version>5.4.5</hutool--all.version>
+        <swagger.version>2.9.2</swagger.version>
+        <swagger.ui.version>2.9.2</swagger.ui.version>
+        <lombok.version>1.18.10</lombok.version>
+        <apache-common-lang3.version>3.10</apache-common-lang3.version>
+        <ip2region.version>1.7.2</ip2region.version>
+        <dyuproject.version>1.1.5</dyuproject.version>
+        <mybatis.version>3.3.0</mybatis.version>
+        <mybatis-general.version>1.3.2</mybatis-general.version>
+        <google-gson.version>2.7</google-gson.version>
+        <google-guava.version>23.0</google-guava.version>
+        <mysql-connector.version>8.0.12</mysql-connector.version>
+        <velocity.version>2.1</velocity.version>
+        <freemarker.version>2.3.29</freemarker.version>
+        <ibeetl.version>3.0.13.RELEASE</ibeetl.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- mp依赖
+            mybatisPlus 会自动的维护Mybatis 以及MyBatis-spring相关的依赖
+        -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!--mysql 连接驱动-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+
+            <!-- 引入lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!--apache 公共包-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${apache-common-lang3.version}</version>
+            </dependency>
+
+            <!-- Hutool 工具包 -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool--all.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

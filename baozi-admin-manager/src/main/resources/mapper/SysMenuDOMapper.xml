@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baozi.admin.mapper.SysMenuMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.baozi.admin.entity.SysMenuDO">
+        <id column="id" property="id" />
+        <result column="system_id" property="systemId" />
+        <result column="parent_id" property="parentId" />
+        <result column="menu_type" property="menuType" />
+        <result column="menu_name" property="menuName" />
+        <result column="menu_icon" property="menuIcon" />
+        <result column="menu_url" property="menuUrl" />
+        <result column="menu_sort" property="menuSort" />
+        <result column="remark" property="remark" />
+        <result column="is_delete" property="isDelete" />
+        <result column="created_by" property="createdBy" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_by" property="updatedBy" />
+        <result column="updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, system_id, parent_id, menu_type, menu_name, menu_icon, menu_url, menu_sort, remark, is_delete, created_by, created_time, updated_by, updated_time
+    </sql>
+
+</mapper>

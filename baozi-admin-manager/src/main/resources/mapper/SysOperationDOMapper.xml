@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baozi.admin.mapper.SysOperationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.baozi.admin.entity.SysOperationDO">
+        <id column="id" property="id" />
+        <result column="operation_code" property="operationCode" />
+        <result column="operation_name" property="operationName" />
+        <result column="operation_desc" property="operationDesc" />
+        <result column="operation_sort" property="operationSort" />
+        <result column="created_by" property="createdBy" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_by" property="updatedBy" />
+        <result column="updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, operation_code, operation_name, operation_desc, operation_sort, created_by, created_time, updated_by, updated_time
+    </sql>
+
+</mapper>
