@@ -30,11 +30,11 @@
         <result column="email" property="email" />
         <result column="image_url" property="imageUrl" />
         <result column="register_date" property="registerDate" />
-        <result column="IS_DELETE" property="isDelete" />
-        <result column="CREATED_BY" property="createdBy" />
-        <result column="CREATED_TIME" property="createdTime" />
-        <result column="UPDATED_BY" property="updatedBy" />
-        <result column="UPDATED_TIME" property="updatedTime" />
+        <result column="is_delete" property="isDelete" />
+        <result column="created_by" property="createdBy" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_by" property="updatedBy" />
+        <result column="updated_time" property="updatedTime" />
         <result column="role_id" property="roleId" />
         <result column="role_code" property="roleCode" />
         <result column="role_name" property="roleName" />

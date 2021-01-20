@@ -73,7 +73,7 @@ public class SysUserManager {
         if (saveRes) {
             SysUserRoleDO userRole = SysUserRoleDO.builder()
                     .userId(sysUser.getId())
-                    .roleId(SnowflakeIdUtil.buildIdWithPrefix(IdPrefixConstant.SYS_ROLE))
+                    .roleId(dto.getRoleId())
                     .id(SnowflakeIdUtil.buildGenerateId())
                     .createdTime(LocalDateTime.now())
                     .build();
