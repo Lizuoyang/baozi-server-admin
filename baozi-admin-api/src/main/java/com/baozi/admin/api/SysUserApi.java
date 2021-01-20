@@ -89,4 +89,15 @@ public class SysUserApi {
         PageInfo<SysUserVo> pageInfo = userManager.listUsers(query);
         return ApiResponse.ofSuccess(pageInfo);
     }
+
+    @ApiOperation(
+            value = "用户名校验",
+            notes = "判断新的用户名是否已存在",
+            httpMethod = "GET",
+            response = ApiResponse.class
+    )
+    @GetMapping("/check/account/{name}/{value}")
+    public ApiResponse checkUserAccount(@PathVariable String name,@PathVariable String value) {
+        return ApiResponse.ofSuccess(userManager.checkUserAccount(name, value));
+    }
 }

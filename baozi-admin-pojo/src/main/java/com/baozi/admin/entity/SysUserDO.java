@@ -48,7 +48,7 @@ public class SysUserDO implements Serializable {
     /**
      * 性别:男0、女1
      */
-    private Boolean sex;
+    private String sex;
 
     /**
      * 手机号

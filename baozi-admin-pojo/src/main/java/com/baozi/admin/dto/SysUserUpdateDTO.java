@@ -35,9 +35,9 @@ public class SysUserUpdateDTO implements Serializable {
     private String password;
 
     /**
-     * 性别:男0、女1
+     * 性别
      */
-    private Boolean sex;
+    private String sex;
 
     /**
      * 手机号

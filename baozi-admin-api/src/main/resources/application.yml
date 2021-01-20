@@ -4,10 +4,6 @@ server:
 spring:
   application:
     name: Baozi-Admin
-  security:
-    user:
-      name: admin
-      password: qwe22515
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
@@ -42,7 +38,7 @@ spring:
     #redisµÄÖ÷»úip
     host: 81.71.68.248
     port: 6379
-    password: 1by19960206@ljl2345
+    password: 123456
     database: 0
 
 baozi:

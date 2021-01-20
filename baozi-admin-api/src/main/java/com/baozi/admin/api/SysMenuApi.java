@@ -14,7 +14,7 @@ import java.util.List;
 
 @Api(tags = "系统菜单接口")
 @RestController
-@RequestMapping("/sys/menu")
+@RequestMapping("/api/sys/menu")
 public class SysMenuApi {
     @Autowired
     private SysMenuManager menuManager;
