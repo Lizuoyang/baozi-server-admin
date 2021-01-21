@@ -43,7 +43,8 @@ spring:
 
 baozi:
   excludeUrl:
-    - /api/sys/user/login
+    - /sys/user/login
+    - /api/*
 
 mybatis-plus:
   # ÅäÖÃmapper.xmlÂ·¾¶

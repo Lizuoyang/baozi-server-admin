@@ -34,7 +34,7 @@ import java.util.stream.Collectors;
 @Api(tags = "系统角色接口")
 @Slf4j
 @RestController
-@RequestMapping("/api/sys/role")
+@RequestMapping("/sys/role")
 public class SysRoleApi {
     @Autowired
     private SysRoleManager roleManager;

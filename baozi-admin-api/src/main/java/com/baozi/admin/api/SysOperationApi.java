@@ -18,7 +18,7 @@ import java.util.List;
 
 @Api(tags = "系统操作接口")
 @RestController
-@RequestMapping("/api/sys/operation")
+@RequestMapping("/sys/operation")
 public class SysOperationApi {
     @Autowired
     private SysOperationService operationService;

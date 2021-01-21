@@ -14,7 +14,7 @@ import java.util.List;
 
 @Api(tags = "系统管理接口")
 @RestController
-@RequestMapping("/api/sys/tem")
+@RequestMapping("/sys/tem")
 public class SystemApi {
     @Autowired
     private SysSystemManager systemManager;

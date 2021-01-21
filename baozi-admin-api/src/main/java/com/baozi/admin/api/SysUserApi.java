@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "系统用户接口")
 @RestController
-@RequestMapping("/api/sys/user")
+@RequestMapping("/sys/user")
 public class SysUserApi {
     @Autowired
     private SysUserManager userManager;
