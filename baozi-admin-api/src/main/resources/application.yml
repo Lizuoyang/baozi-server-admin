@@ -45,6 +45,13 @@ baozi:
   excludeUrl:
     - /sys/user/login
     - /api/*
+    - /webjars/**
+    - /swagger-resources/configuration/ui
+    - /swagger-resources
+    - /swagger-resources/configuration/security
+    - /swagger-ui.html
+    - /actuator/**
+    - /druid/**
 
 mybatis-plus:
   # ≈‰÷√mapper.xml¬∑æ∂
