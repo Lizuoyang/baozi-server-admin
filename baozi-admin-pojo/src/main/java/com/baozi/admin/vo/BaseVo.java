@@ -3,7 +3,7 @@ package com.baozi.admin.vo;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * @ClassName BaseVo
@@ -21,7 +21,7 @@ public class BaseVo implements Serializable {
     /**
      * 创建时间
      */
-    private LocalDate createdTime;
+    private Date createdTime;
 
     /**
      * 更新人
@@ -31,7 +31,7 @@ public class BaseVo implements Serializable {
     /**
      * 更新时间
      */
-    private LocalDate updatedTime;
+    private Date updatedTime;
 
     /**
      * 是否删除0:未删除。1：已删除

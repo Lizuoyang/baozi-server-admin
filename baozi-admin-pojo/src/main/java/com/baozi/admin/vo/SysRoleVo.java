@@ -1,10 +1,12 @@
 package com.baozi.admin.vo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 public class SysRoleVo implements Serializable {
@@ -30,7 +32,7 @@ public class SysRoleVo implements Serializable {
     /**
      * 创建时间
      */
-    private LocalDateTime createdTime;
+    private Date createdTime;
 
     /**
      * 更新人
@@ -40,7 +42,9 @@ public class SysRoleVo implements Serializable {
     /**
      * 更新时间
      */
-    private LocalDateTime updatedTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date updatedTime;
 
 
 }

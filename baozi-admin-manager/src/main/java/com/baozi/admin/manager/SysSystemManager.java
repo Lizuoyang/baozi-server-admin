@@ -17,7 +17,7 @@ import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -44,11 +44,11 @@ public class SysSystemManager {
 
         boolean updResult = Boolean.FALSE;
         if (StringUtil.isNotEmpty(dto.getId())) {
-            sysSystem.setUpdatedTime(LocalDateTime.now());
+            sysSystem.setUpdatedTime(new Date());
             updResult = systemService.updateById(sysSystem);
         } else {
             sysSystem.setId(SnowflakeIdUtil.buildIdWithPrefix(IdPrefixConstant.SYS_TEM));
-            sysSystem.setCreatedTime(LocalDateTime.now());
+            sysSystem.setCreatedTime(new Date());
             updResult = systemService.save(sysSystem);
         }
 

@@ -29,7 +29,7 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -63,7 +63,7 @@ public class SysUserManager {
     public boolean saveUser(SysUserUpdateDTO dto) {
         SysUserDO sysUser = SysUserConvert.INSTANCE.dto2do(dto);
         sysUser.setId(SnowflakeIdUtil.buildIdWithPrefix(IdPrefixConstant.SYS_USER));
-        sysUser.setCreatedTime(LocalDateTime.now());
+        sysUser.setCreatedTime(new Date());
         sysUser.setRegisterDate(sysUser.getCreatedTime());
         sysUser.setImageUrl("https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif");
         sysUser.setPassword(dto.getPassword());
@@ -75,7 +75,7 @@ public class SysUserManager {
                     .userId(sysUser.getId())
                     .roleId(dto.getRoleId())
                     .id(SnowflakeIdUtil.buildGenerateId())
-                    .createdTime(LocalDateTime.now())
+                    .createdTime(new Date())
                     .build();
 
             // 新增角色关联信息
@@ -96,7 +96,7 @@ public class SysUserManager {
     @Transactional(rollbackFor = Exception.class)
     public boolean updateUser(SysUserUpdateDTO dto) {
         SysUserDO sysUser = SysUserConvert.INSTANCE.dto2do(dto);
-        sysUser.setUpdatedTime(LocalDateTime.now());
+        sysUser.setUpdatedTime(new Date());
 
         // 修改用户
         boolean updRes = userService.updateById(sysUser);
@@ -110,7 +110,7 @@ public class SysUserManager {
                         .userId(sysUser.getId())
                         .roleId(dto.getRoleId())
                         .id(SnowflakeIdUtil.buildGenerateId())
-                        .createdTime(LocalDateTime.now())
+                        .createdTime(new Date())
                         .build();
 
                 // 新增角色关联信息

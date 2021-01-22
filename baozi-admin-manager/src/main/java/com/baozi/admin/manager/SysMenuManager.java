@@ -20,8 +20,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
-import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -73,14 +73,14 @@ public class SysMenuManager {
         SysMenuDO updMenu = SysMenuConvert.INSTANCE.dto2do(dto);
         if (StringUtil.isNotEmpty(dto.getId())) {
             // 修改菜单
-            updMenu.setUpdatedTime(LocalDateTime.now());
+            updMenu.setUpdatedTime(new Date());
             updMenu.setId(dto.getId());
             updResult = menuService.updateById(updMenu);
 
         } else {
             updMenu.setId(SnowflakeIdUtil.buildIdWithPrefix(IdPrefixConstant.SYS_MENU));
             // 新增菜单
-            updMenu.setCreatedTime(LocalDateTime.now());
+            updMenu.setCreatedTime(new Date());
             updResult = menuService.save(updMenu);
         }
 

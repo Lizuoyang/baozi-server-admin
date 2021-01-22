@@ -13,7 +13,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Api(tags = "系统操作接口")
@@ -52,7 +52,7 @@ public class SysOperationApi {
     public ApiResponse addOperation(@RequestBody UpdateOperationDTO params) {
         SysOperationDO operation = SysOperationConvert.INSTANCE.dto2do(params);
         operation.setId(SnowflakeIdUtil.buildIdWithPrefix(IdPrefixConstant.SYS_OPERATION));
-        operation.setCreatedTime(LocalDateTime.now());
+        operation.setCreatedTime(new Date());
         boolean res = operationService.save(operation);
         return ApiResponse.ofSuccess(res);
     }
@@ -66,7 +66,7 @@ public class SysOperationApi {
     @PostMapping("/update")
     public ApiResponse updateOperation(@RequestBody UpdateOperationDTO params) {
         SysOperationDO operation = SysOperationConvert.INSTANCE.dto2do(params);
-        operation.setUpdatedTime(LocalDateTime.now());
+        operation.setUpdatedTime(new Date());
         boolean res = operationService.updateById(operation);
         return ApiResponse.ofSuccess(res);
     }

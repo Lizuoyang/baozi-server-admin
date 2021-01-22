@@ -13,7 +13,7 @@ import com.github.pagehelper.util.StringUtil;
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -90,7 +90,7 @@ public class SysOperationManager {
                     .menuId(menuId)
                     .operationId(m)
                     .id(SnowflakeIdUtil.buildGenerateId())
-                    .createdTime(LocalDateTime.now())
+                    .createdTime(new Date())
                     .build();
 
             return saveEntity;

@@ -17,7 +17,7 @@ import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -67,14 +67,14 @@ public class SysRoleManager {
     public boolean save(SysRoleDTO sysRoleDTO) {
         SysRoleDO sysRole = SysRoleCovert.INSTANCE.dto2do(sysRoleDTO);
         sysRole.setId(SnowflakeIdUtil.buildIdWithPrefix(IdPrefixConstant.SYS_ROLE));
-        sysRole.setCreatedTime(LocalDateTime.now());
+        sysRole.setCreatedTime(new Date());
         boolean result = roleService.save(sysRole);
         return result;
     }
 
     public boolean update(SysRoleDTO sysRoleDTO) {
         SysRoleDO sysRole = SysRoleCovert.INSTANCE.dto2do(sysRoleDTO);
-        sysRole.setUpdatedTime(LocalDateTime.now());
+        sysRole.setUpdatedTime(new Date());
         boolean res = roleService.updateById(sysRole);
         return res;
     }

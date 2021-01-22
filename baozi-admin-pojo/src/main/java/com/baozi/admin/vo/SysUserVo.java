@@ -1,8 +1,10 @@
 package com.baozi.admin.vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * @ClassName SysUserVo
@@ -57,7 +59,9 @@ public class SysUserVo extends BaseVo {
     /**
      * 注册时间
      */
-    private LocalDate registerDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date registerDate;
 
     /**
      * 角色ID
