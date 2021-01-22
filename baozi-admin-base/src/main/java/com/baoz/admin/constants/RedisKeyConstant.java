@@ -8,5 +8,12 @@ package com.baoz.admin.constants;
  **/
 public interface RedisKeyConstant {
 
+    /**
+     * token 前缀
+     */
     String SYS_USER_TOKEN = "sysToken";
+    /**
+     * 分隔符
+     */
+    String SEGMENTATION = ":";
 }
