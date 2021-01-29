@@ -1,5 +1,6 @@
 package com.baozi.admin.api;
 
+import com.baozi.admin.config.OperationLog;
 import com.baozi.admin.dto.SysMenuUpdateDTO;
 import com.baozi.admin.dto.UpdateMenuShowDTO;
 import com.baozi.admin.manager.SysMenuManager;
@@ -25,12 +26,14 @@ public class SysMenuApi {
             httpMethod = "POST",
             response = ApiResponse.class
     )
+    @OperationLog("查询角色绑定的菜单")
     @GetMapping("/list/{roleId}")
     public ApiResponse listMenusByRoleId(@PathVariable String roleId) {
         List<SysMenuVo> list = menuManager.listMenusByRoleId(roleId);
         return ApiResponse.ofSuccess(list);
     }
 
+    @OperationLog("修改菜单")
     @ApiOperation(
             value = "修改菜单",
             notes = "修改菜单",
@@ -43,6 +46,7 @@ public class SysMenuApi {
         return ApiResponse.ofSuccess(updRes);
     }
 
+    @OperationLog("显示/隐藏菜单")
     @ApiOperation(
             value = "修改菜单",
             notes = "修改菜单以及子菜单是否隐藏",
@@ -55,6 +59,7 @@ public class SysMenuApi {
         return ApiResponse.ofSuccess(updRes);
     }
 
+    @OperationLog("查询导航列表")
     @ApiOperation(
             value = "获取导航或菜单",
             notes = "根据条件获取对应的菜单",

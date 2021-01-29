@@ -1,5 +1,6 @@
 package com.baozi.admin.api;
 
+import com.baozi.admin.config.OperationLog;
 import com.baozi.admin.dto.SysUserLoginDTO;
 import com.baozi.admin.dto.SysUserUpdateDTO;
 import com.baozi.admin.manager.SysUserManager;
@@ -18,6 +19,7 @@ public class SysUserApi {
     @Autowired
     private SysUserManager userManager;
 
+    @OperationLog("用户登录")
     @ApiOperation(
             value = "用户登录",
             notes = "验证用户名和密码是否正确，正确的话生成token并返回",
@@ -30,6 +32,7 @@ public class SysUserApi {
         return ApiResponse.ofSuccess(token);
     }
 
+    @OperationLog("查询用户信息")
     @ApiOperation(
             value = "获取用户信息",
             notes = "根据token从redis中获取登录过的用户信息",
@@ -42,6 +45,7 @@ public class SysUserApi {
         return ApiResponse.ofSuccess(userInfo);
     }
 
+    @OperationLog("用户登出")
     @ApiOperation(
             value = "用户登出",
             notes = "用户退出系统并清除redis中token信息",
@@ -54,6 +58,7 @@ public class SysUserApi {
         return ApiResponse.ofSuccess();
     }
 
+    @OperationLog("修改用户")
     @ApiOperation(
             value = "修改用户信息",
             notes = "修改用户信息",
@@ -66,6 +71,7 @@ public class SysUserApi {
         return ApiResponse.ofSuccess(res);
     }
 
+    @OperationLog("新增用户")
     @ApiOperation(
             value = "新增用户",
             notes = "新增一个可使用的账号",
@@ -78,6 +84,7 @@ public class SysUserApi {
         return ApiResponse.ofSuccess(res);
     }
 
+    @OperationLog("查询用户列表")
     @ApiOperation(
             value = "用户查询",
             notes = "根据条件分页查询用户列表",
@@ -90,6 +97,7 @@ public class SysUserApi {
         return ApiResponse.ofSuccess(pageInfo);
     }
 
+    @OperationLog("校验用户名是否合法")
     @ApiOperation(
             value = "用户名校验",
             notes = "判断新的用户名是否已存在",

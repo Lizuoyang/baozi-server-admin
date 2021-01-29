@@ -3,6 +3,7 @@ package com.baozi.admin.api;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baoz.admin.constants.MenuTypeConstant;
+import com.baozi.admin.config.OperationLog;
 import com.baozi.admin.dto.SysRoleDTO;
 import com.baozi.admin.entity.SysMenuDO;
 import com.baozi.admin.entity.SysRoleMenuDO;
@@ -48,6 +49,7 @@ public class SysRoleApi {
     @Autowired
     private SysMenuService menuService;
 
+    @OperationLog("查询角色菜单")
     @ApiOperation(
             value = "获取菜单",
             notes = "根据角色获取绑定的菜单和按钮操作权限",
@@ -72,6 +74,7 @@ public class SysRoleApi {
         return ApiResponse.ofSuccess(menuIds);
     }
 
+    @OperationLog("设置角色权限")
     @ApiOperation(
             value = "分配权限",
             notes = "为角色分配菜单权限和按钮权限",
@@ -84,6 +87,7 @@ public class SysRoleApi {
         return ApiResponse.ofSuccess(saveRes);
     }
 
+    @OperationLog("查询角色列表")
     @ApiOperation(
             value = "查询角色",
             notes = "根据条件分页查询角色列表",
@@ -96,6 +100,7 @@ public class SysRoleApi {
         return ApiResponse.ofSuccess(pageInfo);
     }
 
+    @OperationLog("查询全部角色")
     @ApiOperation(
             value = "查询所有角色",
             notes = "查询所有角色",
@@ -108,6 +113,7 @@ public class SysRoleApi {
         return ApiResponse.ofSuccess(sysRoles);
     }
 
+    @OperationLog("新增角色")
     @ApiOperation(
             value = "新增角色",
             notes = "新增角色",
@@ -121,6 +127,7 @@ public class SysRoleApi {
         return ApiResponse.ofSuccess(result);
     }
 
+    @OperationLog("修改角色")
     @ApiOperation(
             value = "修改角色",
             notes = "修改角色",
@@ -134,6 +141,7 @@ public class SysRoleApi {
         return ApiResponse.ofSuccess(result);
     }
 
+    @OperationLog("删除角色")
     @ApiOperation(
             value = "删除角色",
             notes = "根据ID删除角色",

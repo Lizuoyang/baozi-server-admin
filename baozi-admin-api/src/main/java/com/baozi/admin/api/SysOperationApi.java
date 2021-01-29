@@ -3,6 +3,7 @@ package com.baozi.admin.api;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baoz.admin.constants.IdPrefixConstant;
 import com.baozi.admin.SnowflakeIdUtil;
+import com.baozi.admin.config.OperationLog;
 import com.baozi.admin.convert.SysOperationConvert;
 import com.baozi.admin.dto.UpdateOperationDTO;
 import com.baozi.admin.entity.SysOperationDO;
@@ -26,6 +27,7 @@ public class SysOperationApi {
     @Autowired
     private SysOperationManager operationManager;
 
+    @OperationLog("查询所有按钮")
     @ApiOperation(
             value = "获取菜单按钮",
             notes = "根据条件查询菜单按钮",
@@ -42,6 +44,7 @@ public class SysOperationApi {
 
     }
 
+    @OperationLog("新增按钮")
     @ApiOperation(
             value = "新增菜单按钮",
             notes = "新增菜单按钮",
@@ -57,6 +60,7 @@ public class SysOperationApi {
         return ApiResponse.ofSuccess(res);
     }
 
+    @OperationLog("修改按钮")
     @ApiOperation(
             value = "修改菜单按钮",
             notes = "修改菜单按钮",
@@ -71,6 +75,7 @@ public class SysOperationApi {
         return ApiResponse.ofSuccess(res);
     }
 
+    @OperationLog("删除按钮")
     @ApiOperation(
             value = "删除菜单按钮",
             notes = "删除菜单按钮",
@@ -83,6 +88,7 @@ public class SysOperationApi {
         return ApiResponse.ofSuccess(result);
     }
 
+    @OperationLog("查询按钮")
     @ApiOperation(
             value = "获取菜单按钮",
             notes = "根据菜单编码获取菜单按钮",

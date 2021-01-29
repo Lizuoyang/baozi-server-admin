@@ -26,4 +26,8 @@ public interface IdPrefixConstant {
      * 系统管理
      */
     String SYS_TEM = "ST";
+    /**
+     * 系统日志
+     */
+    String SYS_LOG = "SL";
 }

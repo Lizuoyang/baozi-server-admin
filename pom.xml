@@ -6,7 +6,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.9.RELEASE</version>
-        <relativePath /> <!-- lookup parent from repository -->
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -55,6 +55,7 @@
         <github-pagehelper-starter.version>1.2.3</github-pagehelper-starter.version>
         <google-guava.version>29.0-android</google-guava.version>
         <log4j.version>1.2.17</log4j.version>
+        <user-agent.version>1.21</user-agent.version>
     </properties>
 
     <dependencyManagement>
@@ -186,6 +187,15 @@
                 <artifactId>log4j</artifactId>
                 <version>${log4j.version}</version>
             </dependency>
+
+            <!-- 解析 UserAgent 信息 -->
+            <!-- https://mvnrepository.com/artifact/eu.bitwalker/UserAgentUtils -->
+            <dependency>
+                <groupId>eu.bitwalker</groupId>
+                <artifactId>UserAgentUtils</artifactId>
+                <version>${user-agent.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 </project>
